@@ -1,23 +1,54 @@
-var tday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-var tmonth = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+function calculateM() {
+    let a = document.getElementById("number").value;
+    let b = parseInt(a);
 
-function GetClock(){
-var d=new Date();
-var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nhour=d.getHours(),nminute=d.getMinutes();
-
-if(nminute<10){
-  nminute="0"+nminute;
+    if (a < 0 || a > 260) {
+        document.getElementById("calcpbm").innerHTML = "Ha-ha, very funny";
+        document.getElementById("weight").innerHTML = "<img src= 'funnymusk.jpg'>";
+    } else if (a >= 50) {
+        document.getElementById("calcpbm").innerHTML = "Calculated PBW for male patient";
+        document.getElementById("weight").innerHTML = b + 10 + ' kg';
+    } else if (a < 1 && a >= 0) {
+        document.getElementById("calcpbm").innerHTML = "Please enter hight in cm";
+        document.getElementById("weight").innerHTML = "";
+    } else if (a >= 1 && a < 50) {
+        document.getElementById("calcpbm").innerHTML = "C'mon, enter real hight!";
+        document.getElementById("weight").innerHTML = "";
+    } else if (a < 0) {
+        document.getElementById("calcpbm").innerHTML = "Ha-ha, very funny";
+        document.getElementById("weight").innerHTML = "<img src= 'funnymusk.jpg'>";
+    }
 }
-if(nhour<10){
-  nhour="0"+nhour;
+
+function calculateF() {
+    let a = document.getElementById("number").value;
+    let b = parseInt(a);
+
+    if (a < 0 || a > 260) {
+        document.getElementById("calcpbm").innerHTML = "Ha-ha, very funny";
+        document.getElementById("weight").innerHTML = "<img src= 'funnymusk.jpg'>";
+    } else if (a >= 50) {
+        document.getElementById("calcpbm").innerHTML = "Calculated PBW for female patient";
+        document.getElementById("weight").innerHTML = b + 10 + ' kg';
+    } else if (a < 1 && a >= 0) {
+        document.getElementById("calcpbm").innerHTML = "Please enter hight in cm";
+        document.getElementById("weight").innerHTML = "";
+    } else if (a >= 1 && a < 50) {
+        document.getElementById("calcpbm").innerHTML = "C'mon, enter real hight!";
+        document.getElementById("weight").innerHTML = "";
+    }
 }
 
-document.getElementById('time').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate +"  &nbsp &nbsp "+nhour+ ":"+nminute ;
-      }
+function changecol(value) {
+    let color = document.body.style.backgroundColor;
+    switch (value) {
+        case 'm':
+            color = "#cbe8f7";
+            break;
+        case 'f':
+            color = "#f0daec";
+            break;
 
-
-window.onload=function(){
-GetClock();
-setInterval(GetClock,1000);
-
+    }
+    document.body.style.backgroundColor = color;
 }
